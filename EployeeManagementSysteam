@@ -1,0 +1,115 @@
+import java.util.ArrayList;
+import java.util.List;
+
+// Base class
+abstract class Employee {
+    private int id;
+    private String name;
+    private double salary;
+
+    public Employee(int id, String name, double salary) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
+
+    // Encapsulation: Getters and Setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    // Abstract method
+    public abstract void displayRole();
+
+    @Override
+    public String toString() {
+        return "Employee ID: " + id + ", Name: " + name + ", Salary: " + salary;
+    }
+}
+
+// Manager class inheriting Employee
+class Manager extends Employee {
+    private int teamSize;
+
+    public Manager(int id, String name, double salary, int teamSize) {
+        super(id, name, salary);
+        this.teamSize = teamSize;
+    }
+
+    public int getTeamSize() {
+        return teamSize;
+    }
+
+    public void setTeamSize(int teamSize) {
+        this.teamSize = teamSize;
+    }
+
+    @Override
+    public void displayRole() {
+        System.out.println(getName() + " is a Manager leading a team of " + teamSize + " members.");
+    }
+}
+
+// Intern class inheriting Employee
+class Intern extends Employee {
+    private String university;
+
+    public Intern(int id, String name, double salary, String university) {
+        super(id, name, salary);
+        this.university = university;
+    }
+
+    public String getUniversity() {
+        return university;
+    }
+
+    public void setUniversity(String university) {
+        this.university = university;
+    }
+
+    @Override
+    public void displayRole() {
+        System.out.println(getName() + " is an Intern from " + university + ".");
+    }
+}
+
+// Main class to test the system
+public class EmployeeManagementSystem {
+    public static void main(String[] args) {
+        // Polymorphism in action
+        List<Employee> employees = new ArrayList<>();
+
+        // Adding employees
+        employees.add(new Manager(1, "Alice", 120000, 5));
+        employees.add(new Intern(2, "Bob", 20000, "XYZ University"));
+        employees.add(new Manager(3, "Charlie", 150000, 10));
+        employees.add(new Intern(4, "Daisy", 18000, "ABC Institute"));
+
+        // Display employee details and roles
+        for (Employee employee : employees) {
+            System.out.println(employee);
+            employee.displayRole();
+            System.out.println("--------------------------");
+        }
+    }
+}
