@@ -1,0 +1,38 @@
+public interface Payment {
+public void pay();
+public void refund();
+
+    
+}
+public class CreaditCardPayment implements Payment {
+
+    @Override
+    public void pay() {
+       System.out.println(" using this method we pay the someone");
+       
+    }
+
+    @Override
+    public void refund() {
+      
+        System.out.println(" if something wrong happend then refund the money");
+      
+    }
+    
+}
+public class PayPalPayment implements Payment  {
+
+    @Override
+    public void pay() {
+
+System.out.println("it is the method of paypal used to pay.");
+    }
+
+    @Override
+    public void refund() {
+
+System.out.println("it is method when method failaid.");
+
+    }
+    
+}
