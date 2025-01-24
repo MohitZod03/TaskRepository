@@ -1,0 +1,28 @@
+
+
+public abstract class Shape {
+
+public abstract void calculateArea();
+    
+}
+
+public class Circle extends Shape {
+
+    @Override
+    public void calculateArea() {
+       
+        System.out.println(" it is the circle class.");
+    }
+    
+
+}
+public class Rectangle  extends Shape{
+
+    @Override
+    public void calculateArea() {
+      
+        System.out.println(" it is the rectangle class ");
+      
+    }
+    
+}
